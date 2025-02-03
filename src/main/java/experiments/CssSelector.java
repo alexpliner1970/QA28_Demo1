@@ -19,8 +19,13 @@ public class CssSelector {
         hideBanner();
         WebElement imgTools = driver.findElement(By.cssSelector("img[src='/images/Toolsqa.jpg']"));
         System.out.println(imgTools.getTagName());
-        WebElement divElements = driver.findElement(By.cssSelector("div[class='avatar mx-auto white']"));
+        //WebElement divElements = driver.findElement(By.cssSelector("div[class='avatar mx-auto white']"));
+       // divElements.click();
+
+        WebElement divElements = driver.findElement(By.cssSelector("div.card-up"));
         divElements.click();
+
+
 
 
         try {
@@ -71,6 +76,7 @@ public class CssSelector {
         hideFooter();
         //WebElement radioBattonYes = driver.findElement(By.cssSelector("label[for='yesRadio']"));
         WebElement radioBattonYes = driver.findElement(By.xpath("//label[@for='yesRadio']"));
+       // WebElement radioBattonYes= driver.findElement(By.xpath("//input[@id='yesRadio']"));
         radioBattonYes.click();
 
 
