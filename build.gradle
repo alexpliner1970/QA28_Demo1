@@ -14,6 +14,7 @@ dependencies {
     implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
 }
 
+
 test {
     useJUnitPlatform()
 }
