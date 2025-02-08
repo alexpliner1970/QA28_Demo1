@@ -19,12 +19,16 @@ public class XpathSelectors {
         hideFooter();
         WebElement inputFullName= driver.findElement(By.xpath("//input[@id='userName']"));
         inputFullName.sendKeys("Monkey");
+
         WebElement inputEmail=driver.findElement(By.xpath("//input[@placeholder='name@example.com']"));
         inputEmail.sendKeys("driv@gfr.com");
+
         WebElement inputAdress=driver.findElement(By.xpath("//*[text()='Current Address']/../..//textarea"));
         inputAdress.sendKeys("Monkey street");
+
         WebElement inputPerAdd =driver.findElement(By.xpath("//div[@id='permanentAddress-wrapper']//textarea"));
         inputPerAdd.sendKeys("mokStreet 12");
+
         WebElement btnSubmit=driver.findElement(By.xpath("//button[text()='Submit']"));
         btnSubmit.click();
 
@@ -40,12 +44,12 @@ public class XpathSelectors {
 
     }
 
-    private void hideBanner() {
+    public void hideBanner() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("document.querySelector('#fixedban').style.display='none'");
     }
 
-    private void hideFooter() {
+    public void hideFooter() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("document.querySelector('footer').style.display='none'");
     }

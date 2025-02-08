@@ -38,12 +38,12 @@ public class CssSelector {
         driver.quit();
     }
 
-    private void hideBanner() {
+    public void hideBanner() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("document.querySelector('#fixedban').style.display='none'");
     }
 
-    private void hideFooter() {
+    public void hideFooter() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("document.querySelector('footer').style.display='none'");
     }
