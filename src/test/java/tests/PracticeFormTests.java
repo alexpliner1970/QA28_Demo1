@@ -3,7 +3,9 @@ package tests;
 import dto.Student;
 import enums.Gender;
 import enums.Hobbies;
+import enums.StateCity;
 import manager.AppManager;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.FormsPage;
 import pages.HomePage;
@@ -25,10 +27,11 @@ public class PracticeFormTests extends AppManager {
                 "erd@gmail.com",
                 Gender.MALE,"2348975678",
                 "04 Oct 1997","Maths,Physics,Chemistry",
-                hobbies,"","street 1",
-                "NCR","Delhi");
+                hobbies,"","street 1", StateCity.RAJASTHAN.getState(),StateCity.RAJASTHAN.getCity()[1]);
     new HomePage(getDriver()).clickBtnForms();
     new FormsPage(getDriver()).clickBtnPracticeForm();
     new PracticeFormPage(getDriver()) .typePracticeForm(student);
+
+        Assert.assertTrue(new PracticeFormPage(getDriver()).validateModalMessage());
     }
 }

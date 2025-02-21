@@ -35,6 +35,8 @@ public class PracticeFormPage extends BasePage{
             typeHobbies(student.getHobbies());
 
             fieldAddress.sendKeys(student.getAddress());
+            typeStateCity(student.getState(),student.getCity());
+            btnSubmit.click();
 
     }
 
@@ -79,6 +81,20 @@ public class PracticeFormPage extends BasePage{
     @FindBy(xpath = "//input[@id='subjectsInput']")
     WebElement fieldSubject;
 
+    @FindBy(xpath = "//input[@id='react-select-3-input']")
+    WebElement inputState;
+
+    @FindBy(xpath = "//input[@id='react-select-4-input']")
+    WebElement inputCity;
+    @FindBy(css = "button#submit")
+    WebElement btnSubmit;
+    @FindBy(id = "example-modal-sizes-title-lg")
+    WebElement modalMessage;
+
+    public boolean validateModalMessage(){
+        return  validateTextInElement(modalMessage, "Thanks for submitting the form");
+    }
+
     private void typeSubjects(String subjects){
         fieldSubject.click();
         String[] arr=subjects.split(",");
@@ -103,6 +119,12 @@ public class PracticeFormPage extends BasePage{
 
             }
         }
+    }
+    private void typeStateCity(String state,String city){
+        inputState.sendKeys(state);
+        inputState.sendKeys(Keys.ENTER);
+        inputCity.sendKeys(city);
+        inputCity.sendKeys(Keys.ENTER);
     }
 
 }
